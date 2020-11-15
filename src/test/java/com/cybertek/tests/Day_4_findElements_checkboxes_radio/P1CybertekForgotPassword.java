@@ -1,7 +1,11 @@
 package com.cybertek.tests.Day_4_findElements_checkboxes_radio;
 
 import com.cybertek.utilities.WebDriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class P1CybertekForgotPassword {
     public static void main(String[] args) {
@@ -21,7 +25,18 @@ public class P1CybertekForgotPassword {
 
         */
         WebDriver driver= WebDriverFactory.getDriver("chrome");
-        driver.get("http://practice.cybertekschool.com/forgot_password");
+      driver.get("http://practice.cybertekschool.com/forgot_password");
+        WebElement Cybertek= driver.findElement(By.xpath("//div[@ style='text-align: center;']"));
+        String Actual_Text=Cybertek.getText();
+        System.out.println("Actual_Text = " + Actual_Text);
+        System.out.println(Cybertek.isDisplayed());
+        List<WebElement>listElement=driver.findElements(By.xpath("//body//a"));
+
+        for(WebElement eachLink:listElement){
+            System.out.println(eachLink.getText());
+        }
+
+
 
     }
 }
